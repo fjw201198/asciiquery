@@ -15,10 +15,10 @@ void aq_usage()
            "This program can show the ascii code of the character, also,"
            " it can show the char of the character.\n\n"
            "OPTIONS:\n"
-           "\t-i, --int: get ascii code of the character.\n"
-           "\t-c, --char: get char of the given ascii code.\n"
-           "\t-x, --hex: the given ascii code is hex, or output the ascii code as hex.\n"
-           "\t-h, --help: show this message.\n");
+           "\t-i: get ascii code of the character.\n"
+           "\t-c: get char of the given ascii code.\n"
+           "\t-x: the given ascii code is hex, or output the ascii code as hex.\n"
+           "\t-h: show this message.\n");
 }
 
 int get_operation(int *argc, char ***argv)
@@ -40,10 +40,10 @@ int get_operation(int *argc, char ***argv)
             opt = (opt | 0x3) & (0xfffffff8 | OPT_CHAR);
             break;
         case 'x':
-            opt = OPT_HEX;
+            opt |= OPT_HEX;
             break;
         case 'h':
-            opt = (opt | 0x3) & (0xfffffff0 | OPT_HELP);
+            opt = OPT_HELP;
             break;
         default:
             break;
